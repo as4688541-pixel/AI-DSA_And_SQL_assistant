@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Interview Coach</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="brand-mark">IC</span>
+        <div>
+          <h1>Interview Coach</h1>
+          <p class="tagline">Practice DSA and SQL questions, get scored feedback.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+
+    <!-- Setup / question generation panel -->
+    <section class="panel setup-panel">
+      <h2>New question</h2>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="topic">Topic</label>
+          <select id="topic">
+            <option value="DSA">Data Structures &amp; Algorithms</option>
+            <option value="SQL">SQL</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="difficulty">Difficulty</label>
+          <select id="difficulty">
+            <option value="Easy">Easy</option>
+            <option value="Medium">Medium</option>
+            <option value="Hard">Hard</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="generate-btn" class="btn btn-primary">Generate question</button>
+      <p id="generate-error" class="error-text" hidden></p>
+    </section>
+
+    <!-- Question + answer panel -->
+    <section class="panel question-panel" id="question-panel" hidden>
+      <h2>Question</h2>
+      <div id="question-text" class="question-text"></div>
+
+      <label for="answer">Your answer</label>
+      <textarea id="answer" rows="8" placeholder="Write your answer here..."></textarea>
+
+      <button id="evaluate-btn" class="btn btn-primary">Submit for evaluation</button>
+      <p id="evaluate-error" class="error-text" hidden></p>
+    </section>
+
+    <!-- Feedback panel -->
+    <section class="panel feedback-panel" id="feedback-panel" hidden>
+      <div class="feedback-header">
+        <h2>Feedback</h2>
+        <div class="score-badge" id="score-badge" hidden>
+          <span id="score-value">-</span>
+          <span class="score-max">/10</span>
+        </div>
+      </div>
+      <div id="feedback-text" class="feedback-text"></div>
+    </section>
+
+  </main>
+
+  <div id="loading-overlay" class="loading-overlay" hidden>
+    <div class="spinner"></div>
+    <p id="loading-message">Working...</p>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
